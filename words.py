@@ -38,6 +38,9 @@ def sort(file,info): #function that goes throughout the HTML and return the most
         print(ln) #prints the list
         for word in ln: #goes throughout each item in the list
             words[word] = words.get(word,0) + 1 #adds to the 'words' dictionary and generates tuple with a key(word) and value(count)
+    print('Generating dictionary...')
+    time.sleep(1)
+    print(words)
     word = None
     count = None
     if info =='most': #checks if the users choose the most common word, or the least common word
