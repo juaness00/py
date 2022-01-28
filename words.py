@@ -34,7 +34,7 @@ def sort(file,info): #function that goes throughout the HTML and return the most
     for line in file: #goes throughout each line in the HTML
         line = line.text #ignores the 'p' elements and only gets the text inside it
         ln = line.split() #splits the text by spaces and generates a list
-        time.sleep(0.4) #waits 0.4 seconds
+        time.sleep(0.1) #waits 0.1 seconds
         print(ln) #prints the list
         for word in ln: #goes throughout each item in the list
             words[word] = words.get(word,0) + 1 #adds to the 'words' dictionary and generates tuple with a key(word) and value(count)
