@@ -15,9 +15,7 @@ ctx.verify_mode = ssl.CERT_NONE
 try:
     fhandle = urllib.request.urlopen(url, context=ctx).read()
 except:
-    print(url)
     quit()
-
 words = dict()
 soup = BeautifulSoup(fhandle, 'html.parser')
 text = soup.find_all("p")
@@ -60,11 +58,12 @@ while True:
     if keepGoing == 'yes':
         url = input('Enter URL: ')
         try:
-            handle = urllib.request.urlopen(url).read()
+            fhandle = urllib.request.urlopen(url, context=ctx).read()
         except:
             quit()
+        words = dict()
         soup = BeautifulSoup(fhandle, 'html.parser')
-        tags = soup("p")
+        text = soup.find_all("p")
     elif keepGoing == 'no':
         print('Bye bye')
         quit()
