@@ -20,8 +20,8 @@ except:
 
 words = dict()
 soup = BeautifulSoup(fhandle, 'html.parser')
-
 text = soup.find_all("p")
+
 def sort(file,info):
     for line in file:
         line = line.text
