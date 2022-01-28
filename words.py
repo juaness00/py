@@ -15,15 +15,19 @@ ctx.verify_mode = ssl.CERT_NONE
 try:
     fhandle = urllib.request.urlopen(url, context=ctx).read()
 except:
+    print('Invalid URL, please try again')
     quit()
 words = dict()
 soup = BeautifulSoup(fhandle, 'html.parser')
 text = soup.find_all("p")
-
 def sort(file,info):
+    print('generating lists...')
+    time.sleep(1)
     for line in file:
         line = line.text
         ln = line.split()
+        time.sleep(0.4)
+        print(ln)
         for word in ln:
             words[word] = words.get(word,0) + 1
     sender = None
@@ -60,6 +64,7 @@ while True:
         try:
             fhandle = urllib.request.urlopen(url, context=ctx).read()
         except:
+            print('Invalid URL, please try again')
             quit()
         words = dict()
         soup = BeautifulSoup(fhandle, 'html.parser')
